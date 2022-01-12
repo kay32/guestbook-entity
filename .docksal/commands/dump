@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+#-------------------------- Execution --------------------------------
+
+date=$(date '+%Y-%m-%d_%H-%M-%S')
+mkdir -p "${PROJECT_ROOT}/dumps"
+fin drush cr
+fin db dump "${PROJECT_ROOT}/dumps/${date}.sql"
+
+#-------------------------- END: Execution --------------------------------

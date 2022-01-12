@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+#-------------------------- Execution --------------------------------
+
+pattern="${PROJECT_ROOT}/dumps/*.sql"
+dumps=( $pattern )
+if [ -e "${dumps[-1]}" ];
+then
+  fin db import "${dumps[-1]}"
+  fin drush cr
+fi
+#-------------------------- END: Execution --------------------------------
