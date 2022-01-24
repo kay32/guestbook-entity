@@ -9,7 +9,6 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\guestbook_entity\FeedbackInterface;
-use Drupal\user\UserInterface;
 
 /**
  * Defines the feedback entity class.
@@ -52,7 +51,7 @@ use Drupal\user\UserInterface;
  *   field_ui_base_route = "entity.kay_feedback.settings"
  * )
  */
-class Feedback extends ContentEntityBase implements FeedbackInterface {
+class Feedback extends ContentEntityBase {
 
   use EntityChangedTrait;
 
@@ -65,81 +64,6 @@ class Feedback extends ContentEntityBase implements FeedbackInterface {
   public static function preCreate(EntityStorageInterface $storage, array &$values) {
     parent::preCreate($storage, $values);
     $values += ['uid' => \Drupal::currentUser()->id()];
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getTitle(): string {
-    return $this->get('title')->value;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setTitle(string $title): FeedbackInterface {
-    $this->set('title', $title);
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function isEnabled(): bool {
-    return (bool) $this->get('status')->value;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setStatus($status): FeedbackInterface {
-    $this->set('status', $status);
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getCreatedTime(): int {
-    return $this->get('created')->value;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setCreatedTime(int $timestamp): FeedbackInterface {
-    $this->set('created', $timestamp);
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwner(): UserInterface {
-    return $this->get('uid')->entity;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getOwnerId(): ?int {
-    return $this->get('uid')->target_id;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setOwnerId($uid) {
-    $this->set('uid', $uid);
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setOwner(UserInterface $account) {
-    $this->set('uid', $account->id());
-    return $this;
   }
 
   /**
