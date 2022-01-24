@@ -72,11 +72,10 @@ class FeedbackListBuilder extends EntityListBuilder {
    */
   public function buildHeader(): array {
     $header['id'] = $this->t('ID');
-    $header['title'] = $this->t('Title');
-    $header['status'] = $this->t('Status');
-    $header['uid'] = $this->t('Author');
+    $header['name'] = $this->t('Name');
+    $header['email'] = $this->t('Email');
+    $header['phone'] = $this->t('Phone');
     $header['created'] = $this->t('Created');
-    $header['changed'] = $this->t('Updated');
     return $header + parent::buildHeader();
   }
 
@@ -86,16 +85,13 @@ class FeedbackListBuilder extends EntityListBuilder {
    * @throws \Drupal\Core\Entity\EntityMalformedException
    */
   public function buildRow(EntityInterface $entity): array {
-    /** @var \Drupal\guestbook_entity\FeedbackInterface $entity */
+    /** @var \Drupal\Core\Entity\ContentEntityBase $entity */
     $row['id'] = $entity->id();
-    $row['title'] = $entity->toLink();
-    $row['status'] = $entity->isEnabled() ? $this->t('Enabled') : $this->t('Disabled');
-    $row['uid']['data'] = [
-      '#theme' => 'username',
-      '#account' => $entity->getOwner(),
-    ];
-    $row['created'] = $this->dateFormatter->format($entity->getCreatedTime());
-    $row['changed'] = $this->dateFormatter->format($entity->getChangedTime());
+    $row['name'] = $entity->toLink();
+    $row['email']['data'] = $entity->get('email')->view(['label' => 'hidden']);
+    $row['phone']['data'] = $entity->get('phone')->view(['label' => 'hidden']);
+    $row['created']['data'] = $entity->get('created')
+      ->view(['label' => 'hidden']);
     return $row + parent::buildRow($entity);
   }
 

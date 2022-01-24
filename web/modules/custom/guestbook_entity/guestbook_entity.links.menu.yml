@@ -3,6 +3,7 @@ entity.kay_feedback.settings:
   description: 'Configure a Feedback entity type'
   route_name: entity.kay_feedback.settings
   parent: system.admin_structure
+  weight: 1000
 entity.kay_feedback.collection:
   title: 'Feedbacks'
   description: 'List of feedbacks'
