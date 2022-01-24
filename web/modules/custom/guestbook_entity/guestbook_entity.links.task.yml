@@ -1,0 +1,22 @@
+entity.kay_feedback.settings:
+  title: 'Settings'
+  route_name: entity.kay_feedback.settings
+  base_route: entity.kay_feedback.settings
+entity.kay_feedback.view:
+  title: 'View'
+  route_name: entity.kay_feedback.canonical
+  base_route: entity.kay_feedback.canonical
+entity.kay_feedback.edit_form:
+  title: 'Edit'
+  route_name: entity.kay_feedback.edit_form
+  base_route: entity.kay_feedback.canonical
+entity.kay_feedback.delete_form:
+  title: 'Delete'
+  route_name: entity.kay_feedback.delete_form
+  base_route: entity.kay_feedback.canonical
+  weight: 10
+entity.kay_feedback.collection:
+  title: 'Feedback'
+  route_name: entity.kay_feedback.collection
+  base_route: system.admin_content
+  weight: 10

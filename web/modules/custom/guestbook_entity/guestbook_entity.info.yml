@@ -1,0 +1,9 @@
+name: 'Guestbook (Entity)'
+type: module
+description: 'This module adds a page where users can post and read reviews and suggestions.'
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - drupal:text
+configure: entity.kay_feedback.settings

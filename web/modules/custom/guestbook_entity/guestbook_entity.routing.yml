@@ -1,0 +1,7 @@
+entity.kay_feedback.settings:
+  path: 'admin/structure/kay-feedback'
+  defaults:
+    _form: '\Drupal\guestbook_entity\Form\FeedbackSettingsForm'
+    _title: 'Feedback'
+  requirements:
+    _permission: 'administer feedback'

@@ -1,0 +1,5 @@
+kay_feedback.add_form:
+  route_name: entity.kay_feedback.add_form
+  title: 'Add feedback'
+  appears_on:
+    - entity.kay_feedback.collection
