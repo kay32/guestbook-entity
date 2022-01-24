@@ -14,8 +14,42 @@
  * @see template_preprocess_kay_feedback()
  */
 #}
+{#
 <article{{ attributes }}>
   {% if content %}
     {{- content -}}
   {% endif %}
+</article>
+#}
+{{ dump() }}
+<article {{ attributes.addClass("guestbook-record") }}>
+  <div class="guestbook-record__header">
+    <div class="guestbook-record__user-wrapper">
+      {% if content.avatar[0] is empty %}
+        <div class="guestbook-record__avatar-wrapper">
+          <img src="/modules/custom/guestbook_entity/images/default-avatar.png" width="64" height="64" alt="avatar">
+        </div>
+      {% else %}
+        {{ content.avatar }}
+      {% endif %}
+      <div class="guestbook-record__name-wrapper">
+        {{ content.name }}
+        {{ content.created }}
+      </div>
+    </div>
+    <div class="guestbook-record__contacts">
+      <div class="guestbook-record__contacts-label">{{ 'Contacts:'|t }}</div>
+      {{ content.email }}
+      {{ content.phone }}
+    </div>
+  </div>
+  <div class="guestbook-record__body">
+    {{ content.message }}
+    {% if content.attachment[0] is not empty %}
+      <div class="guestbook-record__attachment-wrapper">
+        <div class="guestbook-record__attachment-label">{{ 'Attachments:'|t }}</div>
+        {{ content.attachment }}
+      </div>
+    {% endif %}
+  </div>
 </article>

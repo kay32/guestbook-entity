@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Implementing a default theme for *.
+ *
+ * Available variables:
+ * - feedback_list: *.
+ * - form: *.
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('guestbook_entity/guestbook') }}
+
+<div class="guestbook">
+  <div class="guestbook__left-col">
+    {{ feedback_list }}
+    {{ feedback_pager }}
+  </div>
+  <div class="guestbook__right-col">
+    {{ form }}
+  </div>
+</div>

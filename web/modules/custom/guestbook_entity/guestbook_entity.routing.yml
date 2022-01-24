@@ -5,3 +5,11 @@ entity.kay_feedback.settings:
     _title: 'Feedback'
   requirements:
     _permission: 'administer feedback'
+
+guestbook_entity.main:
+  path: '/guestbook-entity'
+  defaults:
+    _title: 'Guestbook'
+    _controller: '\Drupal\guestbook_entity\Controller\GuestbookController::build'
+  requirements:
+    _permission: 'view feedback'

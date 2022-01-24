@@ -1,0 +1,4 @@
+guestbook:
+  css:
+    component:
+      css/guestbook.css: { }

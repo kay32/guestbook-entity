@@ -9,3 +9,8 @@ entity.kay_feedback.collection:
   description: 'List of feedbacks'
   route_name: entity.kay_feedback.collection
   parent: system.admin_content
+guestbook_entity.main:
+  title: Guestbook
+  menu_name: main
+  route_name: guestbook_entity.main
+  weight: 100

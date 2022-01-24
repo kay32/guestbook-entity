@@ -15,6 +15,18 @@ function guestbook_entity_theme(): array {
     'kay_feedback' => [
       'render element' => 'elements',
     ],
+    'kay_guestbook' => [
+      'variables' => [
+        'form' => NULL,
+        'feedback_list' => NULL,
+      ],
+    ],
+    'kay_feedback_list' => [
+      'variables' => [
+        'feedbacks' => NULL,
+        'pager' => NULL,
+      ],
+    ],
   ];
 }
 

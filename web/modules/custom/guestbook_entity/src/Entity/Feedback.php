@@ -67,7 +67,7 @@ class Feedback extends ContentEntityBase {
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
-        'label' => 'above',
+        'label' => 'hidden',
         'type' => 'image',
         'settings' => [
           'image_style' => 'thumbnail',
@@ -93,7 +93,7 @@ class Feedback extends ContentEntityBase {
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
-        'label' => 'above',
+        'label' => 'hidden',
         'type' => 'string',
         'weight' => -5,
       ])
@@ -107,12 +107,12 @@ class Feedback extends ContentEntityBase {
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
-        'label' => 'above',
+        'label' => 'hidden',
         'type' => 'email_mailto',
       ])
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['phone'] = BaseFieldDefinition::create('string')
+    $fields['phone'] = BaseFieldDefinition::create('telephone')
       ->setLabel(t('Your phone:'))
       ->setRequired(TRUE)
       ->addPropertyConstraints(
@@ -129,13 +129,14 @@ class Feedback extends ContentEntityBase {
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
-        'label' => 'above',
+        'label' => 'hidden',
         'type' => 'telephone_link',
       ])
       ->setDisplayConfigurable('view', TRUE);
 
     $fields['message'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Message:'))
+      ->setRequired(TRUE)
       ->addPropertyConstraints('value', [
         'Length' => [
           'max' => 1000,
@@ -148,7 +149,7 @@ class Feedback extends ContentEntityBase {
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
-        'label' => 'above',
+        'label' => 'hidden',
         'type' => 'text_default',
         'weight' => 10,
       ])
@@ -169,9 +170,10 @@ class Feedback extends ContentEntityBase {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayOptions('view', [
         'type' => 'image',
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => [
           'image_style' => 'thumbnail',
+          'image_link' => 'file',
         ],
       ])
       ->setDisplayConfigurable('view', TRUE);
@@ -180,11 +182,6 @@ class Feedback extends ContentEntityBase {
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Authored on:'))
       ->setDescription(t('The time that the feedback was created.'))
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayOptions('form', [
-        'type' => 'datetime_timestamp',
-        'weight' => 20,
-      ])
       ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('view', [
         'label' => 'hidden',
