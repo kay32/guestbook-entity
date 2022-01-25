@@ -1,0 +1,9 @@
+feedback_edit:
+  title: 'Edit'
+  route_name: 'entity.kay_feedback.edit_form'
+  group: 'kay_feedback'
+
+feedback_delete:
+  title: 'Delete'
+  route_name: 'entity.kay_feedback.delete_form'
+  group: 'kay_feedback'

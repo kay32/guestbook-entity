@@ -21,8 +21,8 @@
   {% endif %}
 </article>
 #}
-{{ dump() }}
 <article {{ attributes.addClass("guestbook-record") }}>
+  {{ title_suffix }}
   <div class="guestbook-record__header">
     <div class="guestbook-record__user-wrapper">
       {% if content.avatar[0] is empty %}
